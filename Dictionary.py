@@ -1,3 +1,7 @@
+#Shane W. Callahan
+#Dictionary Project - California Politics
+#9/24/18
+
 import time
 
 leaders = {
@@ -57,14 +61,30 @@ def sep():
 def switch():
     print("Would you like to change out the leaders? [Y/N]")
     sec_op = input()
-    if sec_op.lower != "n":
+    if sec_op.lower() == "y":
         possib()
         print("Who should be changed?")
         ter_op = input()
         print("Who should be put in charge?")
         switch_two(ter_op)
+    elif sec_op.lower() == "n":
+        print("Would you like to create your own Party?")
+        sec_sec_op = input()
+        if sec_sec_op.lower() == "y":
+            print("What should the party be called?")
+            new_party = input()
+            print("Who should lead the party?")
+            new_leader = input()
+            leaders[new_party] = new_leader
+            time.sleep(.75)
+            print("Due to their small following, they cannot be put into power.")
+            time.sleep(.25)
+
+        else:
+            pass
+
     else:
-        pass
+        print("It's a yes or no question.")
 
 #The first part, where it asks you which party to switch out
 
@@ -115,6 +135,7 @@ while True:
         if quad_op.lower() == "y":
             sep()
         else:
+            print("Goodbye.")
             break
             exit
     else:
